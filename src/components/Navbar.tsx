@@ -51,7 +51,7 @@ export default function Navbar() {
         {/* Bouton contact */}
         <Button
           variant="default"
-          className="text-lg font-bold bg-orange-500 hover:bg-orange-600 text-white rounded-full px-8 py-3 transition-all"
+          className="text-lg font-bold bg-orange-500 hover:bg-orange-600 text-white rounded-none   px-8 py-7 transition-all"
         >
           Contact
         </Button>

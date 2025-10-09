@@ -66,43 +66,45 @@ export default function Services() {
         backgroundImage: "url('/images/background-grey.png')",
       }}
     >
-      {/* Overlay sombre */}
+   
       <div className="absolute inset-0 bg-black/70"></div>
 
       <div className="relative z-10 container mx-auto text-center px-4">
-        {/* Titre */}
-        <h2 className="text-5xl font-extrabold mb-4">
-          <span className="bg-orange-500 px-4 py-2 rounded-md">Services</span>
-        </h2>
+   
+           <h2 className="text-5xl font-bold mb-8 inline-block">
+  <span className="bg-orange-500 px-6 py-2 inline-block transform -rotate-2">
+    Services
+  </span>
+</h2>
 
-        {/* Sous-titre */}
+ 
         <p className="text-gray-300 text-lg max-w-3xl mx-auto mb-16">
           Chaque collaboration démarre par l’émergence d’un problème, se poursuit
           par la mise en place de solutions graphiques pour aboutir à l’atteinte
           de vos objectifs.
         </p>
 
-        {/* 🧩 Grille de services */}
+   
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service) => (
             <div
               key={service.id}
-              className={`p-8 rounded-lg shadow-lg text-left transition-transform hover:scale-105 ${
+              className={`p-8   shadow-lg  flex justify-center items-center flex-col   transition-transform hover:scale-105 ${
                 service.highlight
                   ? "bg-orange-500 text-white"
-                  : "bg-white text-gray-900"
+                  : "bg-[#212121] h-80 text-white"
               }`}
             >
-              <div className="mb-4">{service.icon}</div>
+              <div className="mb-4 text-white">{service.icon}</div>
               <h3
-                className={`text-xl font-bold mb-3 ${
+                className={`text-xl  mb-3 text-orange-500 ${
                   service.highlight ? "text-white" : "text-gray-900"
                 }`}
               >
                 {service.title}
               </h3>
               <p
-                className={`text-sm leading-relaxed ${
+                className={`text-sm leading-relaxed text-white ${
                   service.highlight ? "text-white/90" : "text-gray-600"
                 }`}
               >
