@@ -1,7 +1,7 @@
 import React from "react";
 
 export default function BarAnimation() {
-  const items = ["LOGO", "CRÉATIONS", "FLYER", " GRAPHIQUE", "LOGO", " SITE WEB", "FLYER", "CHARTE"];
+  const items = ["LOGO", "CRÉATIONS", "FLYER", " GRAPHIQUE", "LOGOS", " SITE WEB", "FLYERS", "CHARTE"];
 
   return (
     <div className="relative z-20 -mt-16">

@@ -1,4 +1,11 @@
+"use client";
+
 import Image from "next/image";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Autoplay } from "swiper/modules";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import "swiper/css";
+import "swiper/css/navigation";
 
 export default function Portfolios() {
   const projects = [
@@ -20,72 +27,107 @@ export default function Portfolios() {
       category: ["Logo", "Identité visuelle"],
       image: "/images/portfolios/menu.png",
     },
+    {
+      id: 4,
+      title: "Studio Nova",
+      category: ["Identité visuelle", "Print", "Création"],
+      image: "/images/portfolios/menu.png",
+    },
+    {
+      id: 5,
+      title: "Projet Branding Minimal",
+      category: ["Branding", "Logo", "Web"],
+      image: "/images/portfolios/menu.png",
+    },
   ];
 
   return (
-   <section
-  className="relative min-h-screen bg-cover bg-center bg-no-repeat pt-44 pb-24 text-white"
-  style={{
-    backgroundImage: "url('/images/background-grey.png')",
-  }}
->
-
+    <section
+      className="relative min-h-screen bg-cover bg-center bg-no-repeat pt-44 pb-24 text-white"
+      style={{
+        backgroundImage: "url('/images/background-grey.png')",
+      }}
+    >
       {/* Overlay sombre */}
       <div className="absolute inset-0 bg-black/30"></div>
 
       <div className="relative z-10 container mx-auto text-center px-4">
         {/* Titre */}
         <h2 className="text-5xl font-bold mb-8 inline-block">
-  <span className="bg-orange-500 px-6 py-2 inline-block transform -rotate-2">
-    Portfolios
-  </span>
-</h2>
+          <span className="bg-orange-500 px-6 py-2 inline-block transform -rotate-2">
+            Portfolios
+          </span>
+        </h2>
 
-
- 
-        <p className=" text-lg max-w-4xl mx-auto text-orange-500 mb-16">
-          Chaque collaboration démarre par l’émergence d’un problème, se poursuit
-          par la mise en place de solutions graphiques pour aboutir à l’atteinte
-          de vos objectifs.
+        <p className="text-lg max-w-4xl mx-auto text-orange-500 mb-16">
+          Chaque projet commence par une idée, évolue à travers des choix visuels forts,
+          et s’accomplit dans la création d’une identité marquante.
         </p>
 
-        
-        <div className="grid md:grid-cols-3 gap-8 justify-center">
-          {projects.map((project) => (
-            <div key={project.id} >
-            <div
-             
-              className="bg-[#1e1e1e]/70   shadow-lg overflow-hidden transition-transform hover:scale-105"
-            >
-              <Image
-                src={project.image}
-                alt={project.title}
-                width={400}
-                height={400}
-                className="w-full object-cover"
-              />
-             
-            </div>
-             <div className="p-5 text-left">
-             <div className="flex flex-wrap gap-2 mb-3">
-               {project.category.map((cat, i) => (
-                 <span
-                   key={i}
-                   className="bg-purple-700 text-md   rounded-full px-3 py-1  "
-                 >
-                   {cat}
-                 </span>
-               ))}
-             </div>
-             <p className="text-white font-semibold text-xl leading-snug">
-               {project.title}
-             </p>
-           </div></div>
-          ))}
+        {/* ✅ Carrousel avec flèches extérieures */}
+        <div className="relative">
+          {/* Flèche gauche */}
+          <div className="swiper-button-prev absolute -left-8 top-1/2 transform -translate-y-1/2 z-20   hover:bg-orange-600 text-white p-3 rounded-full shadow-lg cursor-pointer transition">
+            <ChevronLeft className="w-6 h-6" />
+          </div>
+
+          {/* Flèche droite */}
+          <div className="swiper-button-next absolute -right-8 top-1/2 transform -translate-y-1/2 z-20  hover:bg-orange-600 text-white p-3 rounded-full shadow-lg cursor-pointer transition">
+            <ChevronRight className="w-6 h-6" />
+          </div>
+
+          <Swiper
+            modules={[Navigation, Autoplay]}
+            navigation={{
+              nextEl: ".swiper-button-next",
+              prevEl: ".swiper-button-prev",
+            }}
+            autoplay={{ delay: 3500, disableOnInteraction: false }}
+            spaceBetween={30}
+            slidesPerView={1}
+            breakpoints={{
+              640: { slidesPerView: 1 },
+              768: { slidesPerView: 2 },
+              1024: { slidesPerView: 3 },
+            }}
+            className="pb-10"
+          >
+            {projects.map((project) => (
+              <SwiperSlide key={project.id}>
+                <div>
+                  <div className="bg-[#1e1e1e]/70 shadow-lg overflow-hidden transition-transform hover:scale-105">
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      width={400}
+                      height={400}
+                      className="w-full object-cover"
+                    />
+                  </div>
+                  <div className="py-9 text-left">
+                    <div className="flex flex-wrap gap-2 mb-3">
+                      {project.category.map((cat, i) => (
+                        <span
+                          key={i}
+                          className="bg-purple-700 text-md rounded-full px-3 py-1"
+                        >
+                          {cat}
+                        </span>
+                      ))}
+                    </div>
+                    <p className="text-white font-semibold text-xl leading-snug">
+                      {project.title}
+                    </p>
+                  </div>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
- 
+
+     
         <div className="mt-16">
-          <button className="bg-purple-700 hover:bg-purple-800 text-white font-bold py-3 px-10   text-lg transition">
+          <button className="bg-purple-700 hover:bg-purple-800 text-white font-bold py-3 px-10 text-lg transition">
             + DE PROJETS
           </button>
         </div>

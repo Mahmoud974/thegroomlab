@@ -85,7 +85,7 @@ export default function Services() {
       }}
     >
       {/* overlay */}
-      <div className="absolute inset-0 bg-black/80"></div>
+      <div className="absolute inset-0 bg-black/30"></div>
 
       <div className="relative z-10 container mx-auto text-center px-4">
         <h2 className="text-5xl font-bold mb-8 inline-block">
@@ -94,7 +94,7 @@ export default function Services() {
           </span>
         </h2>
 
-        <p className="text-gray-300 text-lg">
+        <p className="text-gray-300 text-lg pb-6">
           Chaque projet naît d’un besoin concret, évolue grâce à des solutions visuelles<br />
           adaptées, et s’accomplit dans la réussite de vos objectifs.
         </p>
@@ -103,7 +103,7 @@ export default function Services() {
           {services.map((service) => (
             <div
               key={service.id}
-              className="bg-[#141414] hover:bg-[#1c1c1c] transition-all duration-300 p-8 h-80 shadow-lg border border-transparent hover:border-orange-500 flex items-center flex-col justify-center items-center text-center"
+              className="bg-[#141414] hover:bg-[#1c1c1c] transition-all duration-300 p-8 h-80 shadow-lg border border-transparent hover:border-orange-500 flex  flex-col justify-center items-center text-center"
             >
               <div className="mb-4 text-orange-500">{service.icon}</div>
               <h3 className="text-2xl font-bold text-orange-500 mb-3">

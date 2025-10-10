@@ -1,73 +1,49 @@
 export default function Contact() {
   return (
     <section
-      className="relative min-h-screen bg-cover bg-center bg-no-repeat flex items-center justify-center"
-      style={{
-        backgroundImage: "url('/images/background-contact.png')", // <-- ton image de fond
-      }}
+      className="relative flex flex-col items-center bg-orange-600 justify-center text-white py-42 px-6"
+ 
     >
-      {/* Overlay sombre */}
-      <div className="absolute inset-0 bg-black/60"></div>
+     
+      <h2 className="text-5xl font-bold mb-8 inline-block text-center">
+        <span className="bg-purple-900 px-6 py-2 inline-block transform -rotate-2">
+          Contact
+        </span>
+      </h2>
 
-      {/* Contenu */}
-      <div className="relative z-10 w-full max-w-3xl text-center px-6">
-        {/* Titre */}
-        <h2 className="text-4xl md:text-5xl font-extrabold mb-12">
-          <span className="bg-orange-500 px-6 py-2 rounded-md text-white">
-            Contactez-nous
-          </span>
-        </h2>
+ 
+      <p className="text-center text-white/90 text-lg max-w-5xl mb-10 leading-relaxed">
+        Chaque projet naît d’un besoin concret, évolue grâce à des solutions visuelles adaptées,
+        et s’accomplit dans la réussite de vos objectifs.
+      </p>
 
-        {/* Formulaire */}
-        <form className="space-y-6 text-left">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div>
-              <label className="block text-sm text-gray-200 mb-2">NOM</label>
-              <input
-                type="text"
-                placeholder="Votre nom"
-                className="w-full bg-transparent border border-orange-500 text-white px-4 py-3 rounded-md placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-400"
-              />
-            </div>
-            <div>
-              <label className="block text-sm text-gray-200 mb-2">NUMÉRO DE TÉLÉPHONE</label>
-              <input
-                type="tel"
-                placeholder="06 12 34 56 78"
-                className="w-full bg-transparent border border-orange-500 text-white px-4 py-3 rounded-md placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-400"
-              />
-            </div>
-          </div>
+   
+      <form className="space-y-6 flex flex-col justify-center w-full max-w-3xl">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <input
+            type="text"
+            placeholder="Nom complet"
+            className="w-full bg-white/10 border border-white/40 text-white placeholder-white/70 px-4 py-3  focus:border-white focus:ring-2 focus:ring-purple-700 transition"
+          />
+          <input
+            type="email"
+            placeholder="Adresse e-mail"
+            className="w-full bg-white/10 border border-white/40 text-white placeholder-white/70 px-4 py-3  focus:border-white focus:ring-2 focus:ring-purple-700 transition"
+          />
+        </div>
 
-          <div>
-            <label className="block text-sm text-gray-200 mb-2">E-MAIL *</label>
-            <input
-              type="email"
-              placeholder="exemple@email.com"
-              className="w-full bg-transparent border border-orange-500 text-white px-4 py-3 rounded-md placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-400"
-              required
-            />
-          </div>
+        <textarea
+          rows={6}
+          placeholder="Votre message..."
+          className="w-full bg-white/10 border border-white/40 text-white placeholder-white/70 px-4 py-3  focus:border-white focus:ring-2 focus:ring-purple-700 resize-none transition"
+        ></textarea>
 
-          <div>
-            <label className="block text-sm text-gray-200 mb-2">COMMENTAIRE</label>
-            <textarea
-              rows={5}
-              placeholder="Votre message..."
-              className="w-full bg-transparent border border-orange-500 text-white px-4 py-3 rounded-md placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-400 resize-none"
-            ></textarea>
-          </div>
-
-          <div className="text-center mt-10">
-            <button
-              type="submit"
-              className="bg-purple-700 hover:bg-purple-800 text-white font-bold py-3 px-12 rounded-full text-lg transition"
-            >
-              ENVOYER
-            </button>
-          </div>
-        </form>
-      </div>
+        <div className="flex justify-center pt-4">
+          <button className="bg-purple-900 hover:bg-purple-800 text-white font-bold py-3 px-12   text-lg transition-all duration-300 shadow-lg hover:shadow-purple-900/40">
+            Envoyer le message
+          </button>
+        </div>
+      </form>
     </section>
   );
 }
