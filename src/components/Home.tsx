@@ -81,7 +81,7 @@ export default function Home() {
         <Navbar />
 
         <div className="container mx-auto text-left px-6 mt-60" ref={sectionRef}>
-          <p className="text-5xl md:text-6xl font-bold leading-tight mb-4">
+          <p className="text-5xl md:text-6xl mt-96 font-bold leading-tight mb-4">
             Créez Votre Identité Visuelle <br />
             avec un{" "}
             <span className="bg-orange-500 px-3 py-1 transform">

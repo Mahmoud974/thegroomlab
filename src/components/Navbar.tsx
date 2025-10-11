@@ -17,8 +17,8 @@ export default function Navbar() {
   ]
 
   return (
-    <nav className="pt-8">
-      <div className="flex justify-between items-center container mx-auto">
+    <nav className="absolute top-0 left-0 w-full z-50">
+      <div className="flex justify-between items-center container mx-auto pt-8">
         {/* Logo */}
         <Image
           src="/images/logo.png"
@@ -29,7 +29,7 @@ export default function Navbar() {
         />
 
         {/* Liens du menu */}
-        <ul className="flex space-x-10 text-base bg-purple-700/20 backdrop-blur-md px-10 py-4  ">
+        <ul className="flex space-x-10 text-base bg-transparent backdrop-blur-xl px-10 py-4">
           {navLinks.map(({ href, label }) => {
             const isActive = pathname === href
             return (
@@ -37,7 +37,7 @@ export default function Navbar() {
                 <Link
                   href={href}
                   className={`
-                    relative px-8 py-2  font-semibold transition-all duration-300
+                    relative px-8 py-2 font-semibold transition-all uppercase duration-300
                     ${isActive ? 'bg-orange-500 text-white' : 'text-white hover:bg-orange-500 hover:text-white'}
                   `}
                 >
@@ -51,7 +51,7 @@ export default function Navbar() {
         {/* Bouton contact */}
         <Button
           variant="default"
-          className="text-lg font-bold bg-orange-500 hover:bg-orange-600 text-white rounded-none   px-8 py-7 transition-all"
+          className="text-lg font-bold bg-orange-500 hover:bg-orange-600 text-white rounded-none px-8 py-7 transition-all"
         >
           Contact
         </Button>

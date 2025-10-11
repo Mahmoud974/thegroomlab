@@ -6,6 +6,7 @@ import { Navigation, Autoplay } from "swiper/modules";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import "swiper/css";
 import "swiper/css/navigation";
+import Link from "next/link";
 
 export default function Portfolios() {
   const projects = [
@@ -43,7 +44,7 @@ export default function Portfolios() {
 
   return (
     <section
-      className="relative min-h-screen bg-cover bg-center bg-no-repeat pt-44 pb-24 text-white"
+      className="relative min-h-screen bg-cover bg-center bg-no-repeat -mt-12 pt-46 pb-24 text-white"
       style={{
         backgroundImage: "url('/images/background-grey.png')",
       }}
@@ -63,15 +64,14 @@ export default function Portfolios() {
           Chaque projet commence par une idée, évolue à travers des choix visuels forts,
           et s’accomplit dans la création d’une identité marquante.
         </p>
-
-        {/* ✅ Carrousel avec flèches extérieures */}
+ 
         <div className="relative">
-          {/* Flèche gauche */}
+        
           <div className="swiper-button-prev absolute -left-8 top-1/2 transform -translate-y-1/2 z-20   hover:bg-orange-600 text-white p-3 rounded-full shadow-lg cursor-pointer transition">
             <ChevronLeft className="w-6 h-6" />
           </div>
 
-          {/* Flèche droite */}
+        
           <div className="swiper-button-next absolute -right-8 top-1/2 transform -translate-y-1/2 z-20  hover:bg-orange-600 text-white p-3 rounded-full shadow-lg cursor-pointer transition">
             <ChevronRight className="w-6 h-6" />
           </div>
@@ -94,7 +94,7 @@ export default function Portfolios() {
           >
             {projects.map((project) => (
               <SwiperSlide key={project.id}>
-                <div>
+                <Link href="/item/opizz">
                   <div className="bg-[#1e1e1e]/70 shadow-lg overflow-hidden transition-transform hover:scale-105">
                     <Image
                       src={project.image}
@@ -119,7 +119,7 @@ export default function Portfolios() {
                       {project.title}
                     </p>
                   </div>
-                </div>
+                </Link>
               </SwiperSlide>
             ))}
           </Swiper>
