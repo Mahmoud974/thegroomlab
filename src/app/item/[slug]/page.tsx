@@ -165,7 +165,7 @@ export default function Page() {
                       alt={`Mockup ${index + 1}`}
                       width={600}
                       height={600}
-                      className="rounded-xl shadow-lg object-contain"
+                      className="  shadow-lg object-contain"
                     />
                   </div>
                 ))}
@@ -191,7 +191,7 @@ export default function Page() {
                   <div
                     key={i}
                     onClick={() => setCurrent(i)}
-                    className={`w-3 h-3 rounded-full cursor-pointer transition-all ${
+                    className={`w-3 h-3   cursor-pointer transition-all ${
                       current === i
                         ? "bg-orange-500 scale-110"
                         : "bg-gray-400"

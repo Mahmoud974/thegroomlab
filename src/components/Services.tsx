@@ -79,6 +79,7 @@ export default function Services() {
 
   return (
     <section
+    id="services"
       className="relative min-h-screen bg-cover bg-center bg-no-repeat text-white py-24"
       style={{
         backgroundImage: "url('/images/background-grey.png')",
@@ -89,12 +90,12 @@ export default function Services() {
 
       <div className="relative z-10 container mx-auto text-center px-4">
         <h2 className="text-5xl font-bold mb-8 inline-block">
-          <span className="bg-orange-500 px-6 py-2 inline-block transform -rotate-2">
+          <span className="bg-orange-500 px-6 py-2 inline-block transform -rotate-2"  >
             Services
           </span>
         </h2>
 
-        <p className="text-gray-300 text-lg pb-6">
+        <p className="text-orange-500 text-lg pb-6">
           Chaque projet naît d’un besoin concret, évolue grâce à des solutions visuelles<br />
           adaptées, et s’accomplit dans la réussite de vos objectifs.
         </p>

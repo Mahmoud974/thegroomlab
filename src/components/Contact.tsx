@@ -1,7 +1,8 @@
 export default function Contact() {
   return (
     <section
-      className="relative flex flex-col items-center justify-center text-white py-42 px-6 bg-cover bg-center bg-no-repeat"
+    id="contact"
+      className="relative flex flex-col items-center justify-center text-white py-32 px-6 bg-cover bg-center bg-no-repeat"
       style={{
         backgroundImage: "url('/images/background-contact.png')",
       }}
@@ -17,7 +18,7 @@ export default function Contact() {
           </span>
         </h2>
 
-        <p className="text-center text-white/90 text-lg max-w-5xl mb-10 leading-relaxed">
+        <p className="text-center text-orange-600 text-lg max-w-5xl mb-10 leading-relaxed">
           Chaque projet naît d’un besoin concret, évolue grâce à des solutions visuelles adaptées,
           et s’accomplit dans la réussite de vos objectifs.
         </p>

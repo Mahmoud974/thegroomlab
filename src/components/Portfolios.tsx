@@ -67,12 +67,12 @@ export default function Portfolios() {
  
         <div className="relative">
         
-          <div className="swiper-button-prev absolute -left-8 top-1/2 transform -translate-y-1/2 z-20   hover:bg-orange-600 text-white p-3 rounded-full shadow-lg cursor-pointer transition">
+          <div className="swiper-button-prev absolute -left-8 top-1/2 transform -translate-y-1/2 z-20   hover:bg-orange-600 text-white p-3   shadow-lg cursor-pointer transition">
             <ChevronLeft className="w-6 h-6" />
           </div>
 
         
-          <div className="swiper-button-next absolute -right-8 top-1/2 transform -translate-y-1/2 z-20  hover:bg-orange-600 text-white p-3 rounded-full shadow-lg cursor-pointer transition">
+          <div className="swiper-button-next absolute -right-8 top-1/2 transform -translate-y-1/2 z-20  hover:bg-orange-600 text-white p-3 shadow-lg cursor-pointer transition">
             <ChevronRight className="w-6 h-6" />
           </div>
 
@@ -109,7 +109,7 @@ export default function Portfolios() {
                       {project.category.map((cat, i) => (
                         <span
                           key={i}
-                          className="bg-purple-700 text-md rounded-full px-3 py-1"
+                          className="bg-purple-950 text-md   px-3 py-1"
                         >
                           {cat}
                         </span>
@@ -127,8 +127,10 @@ export default function Portfolios() {
 
      
         <div className="mt-16">
-          <button className="bg-purple-700 hover:bg-purple-800 text-white font-bold py-3 px-10 text-lg transition">
+          <button className="bg-purple-950 hover:bg-purple-800 text-white font-bold py-3 px-10 text-lg transition">
+            <Link href="/portfolio">
             + DE PROJETS
+            </Link>
           </button>
         </div>
       </div>
