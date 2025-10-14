@@ -10,7 +10,7 @@ export default function Home() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
 
-  // 👁️ Détecte quand la section est visible à l'écran
+ 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -32,7 +32,7 @@ export default function Home() {
     };
   }, []);
 
-  // ⚙️ Animation progressive des compteurs
+   
   useEffect(() => {
     if (isVisible) {
       const expTarget = 10;
@@ -80,7 +80,7 @@ export default function Home() {
       <div className="relative z-10 flex flex-col justify-between h-full">
         <Navbar />
 
-        <div className="container mx-auto text-left px-6 mt-60" ref={sectionRef}>
+        <div className="container mx-auto text-left px-6 mt-42" ref={sectionRef}>
           <p className="text-5xl md:text-6xl mt-96 font-bold leading-tight mb-4">
             Créez Votre Identité Visuelle <br />
             avec un{" "}
