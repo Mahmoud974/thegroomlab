@@ -31,13 +31,15 @@ export default function BarAnimation() {
     <div className="relative z-20 -mt-16  ">
       {/* Bande inclinée */}
       <div className="bg-gradient-to-r from-orange-500 to-orange-700 transform -rotate-1 origin-top scale-110 shadow-lg">
-        <div className="py-10 text-3xl font-extrabold text-purple-950 uppercase tracking-wide whitespace-nowrap overflow-hidden">
-          <div className="marquee">
-            <div className="marquee__inner">
+        <div className="py-6 md:py-8 lg:py-10 text-2xl md:text-3xl font-extrabold text-purple-950 uppercase tracking-wide whitespace-nowrap overflow-hidden">
+          <div className="marquee flex items-center">
+            <div className="marquee__inner flex items-center">
               {repeatedItems.map((item, index) => (
                 <React.Fragment key={`${item}-${index}`}>
-                  <span className="mx-8">{item}</span>
-                  <span className="text-purple-950 text-2xl">✦</span>
+                  <span className="mx-8 flex items-center justify-center">{item}</span>
+                  <span className="text-purple-950 text-2xl md:text-3xl flex items-center justify-center">
+                    ◆
+                  </span>
                 </React.Fragment>
               ))}
             </div>
