@@ -10,5 +10,11 @@ const projets = [
 
 ];
 export async function GET() {
-  return NextResponse.json({ projets });
+  try{
+    return NextResponse.json({ projets });
+  }catch(err){
+    console.log(err);
+    
+  }
+
 }

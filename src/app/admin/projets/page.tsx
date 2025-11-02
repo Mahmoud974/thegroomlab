@@ -1,10 +1,11 @@
 "use client";
-import {  Home } from "lucide-react";
+
+import { Edit, Home, Trash, CirclePlus } from "lucide-react";
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
-import { CirclePlus } from 'lucide-react';
+
 export default function Page() {
-    const [data, setData] = useState<any[]>([]);
+  const [data, setData] = useState<any[]>([]);
 
   useEffect(() => {
     const getData = async () => {
@@ -27,21 +28,29 @@ export default function Page() {
         backgroundImage: "url('/images/background-grey.png')",
       }}
     >
-         <Link href="/" className="flex justify-start w-5xl pb-5 cursor-pointer  items-center text-orange-500">
-    <Home />
-    <p className="ml-2">Home</p>
-  </Link>
-      
-      <div className="absolute inset-0 bg-black/40"></div>
+      {/* ✅ Le lien Home reste visible à gauche, exactement comme sur ton image */}
+      <div className="flex justify-start w-full max-w-6xl pt-10 pb-5   z-20 relative">
+        <Link
+          href="/"
+          className="flex items-center text-orange-500 hover:text-orange-600 transition-all cursor-pointer"
+        >
+          <Home size={22} />
+          <p className="ml-2 text-base font-medium">Home</p>
+        </Link>
+      </div>
 
-      <div className="relative z-10 w-full max-w-5xl px-8 py-10 bg-white/90 backdrop-blur-sm shadow-2xl">
+      {/* ✅ Overlay noir semi-transparent, mais non bloquant pour les clics */}
+      <div className="absolute inset-0 bg-black/40 pointer-events-none"></div>
+
+      {/* ✅ Bloc principal */}
+      <div className="relative z-10 w-full max-w-6xl px-8 py-10 bg-white/90 backdrop-blur-sm shadow-2xl -2xl">
         <h1 className="text-4xl font-bold mb-10 text-center text-gray-800">
           Liste des projets
         </h1>
         <p className="text-2xl pb-5 text-right">{data?.length} projets</p>
 
         {/* Tableau scrollable */}
-        <div className="overflow-y-auto max-h-[400px] border-y border-gray-300 shadow-inner">
+        <div className="overflow-y-auto max-h-[400px] border-y border-gray-300 shadow-inner -md">
           <table className="min-w-full text-left text-gray-700 text-lg">
             <thead className="bg-gray-200 text-gray-800 uppercase text-base sticky top-0 z-10">
               <tr>
@@ -53,21 +62,21 @@ export default function Page() {
               </tr>
             </thead>
             <tbody>
-              {data?.map((projet:any) => (
+              {data?.map((projet: any) => (
                 <tr
                   key={projet.id}
-                  className="hover:bg-gray-100 transition-all text-gray-800 border-b cursor-pointer"
+                  className="hover:bg-gray-100 transition-all text-gray-800 border-b"
                 >
                   <td className="px-8 py-5 text-xl">{projet.id}</td>
                   <td className="px-8 py-5 font-semibold text-xl">{projet.nom}</td>
                   <td className="px-8 py-5 text-lg">{projet.categorie}</td>
                   <td className="px-8 py-5 text-lg">{projet.date}</td>
-                  <td className="px-8 py-5 flex justify-center">
-                    <button className="bg-purple-800 text-white px-5 py-2 hover:bg-purple-950 mr-3 text-lg font-medium cursor-pointer">
-                      Modifier
+                  <td className="px-8 py-5 flex justify-center space-x-3">
+                    <button className="bg-orange-600 text-white px-5 py-2 cursor-pointer -md hover:bg-orange-700 transition-all text-lg font-medium">
+                      <Edit />
                     </button>
-                    <button className="bg-orange-600 text-white px-5 py-2 hover:bg-orange-700 text-lg font-medium cursor-pointer">
-                      Supprimer
+                    <button className="bg-red-600 text-white px-5 py-2 cursor-pointer -md hover:bg-red-700 transition-all text-lg font-medium">
+                      <Trash />
                     </button>
                   </td>
                 </tr>
@@ -76,13 +85,15 @@ export default function Page() {
           </table>
         </div>
 
-        {/* Bouton Ajouter en bas */}
-        <Link href="/admin/projets/edit" className="flex justify-end mt-8">
-          <button className="bg-gray-800 flex items-center text-white px-6 py-3 text-lg font-semibold hover:bg-green-800 cursor-pointer">
-            <CirclePlus/>
-           <p className="ml-2">Ajouter un projet</p>
-          </button>
-        </Link>
+        {/* Bouton Ajouter un projet */}
+        <div className="flex justify-end mt-8">
+          <Link href="/admin/projets/edit">
+            <button className="bg-purple-800 flex items-center cursor-pointer text-white px-6 py-3 text-lg font-semibold -md hover:bg-purple-900 transition-all">
+              <CirclePlus />
+              <p className="ml-2">Ajouter un projet</p>
+            </button>
+          </Link>
+        </div>
       </div>
     </div>
   );

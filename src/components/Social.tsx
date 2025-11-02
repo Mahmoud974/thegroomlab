@@ -4,7 +4,8 @@ import React from "react";
 export default function Social() {
   return (
     <Link
-      href="/"
+      href="https://www.instagram.com/manuscritgraphisme/"
+      target="_blank"
       className="group relative h-96 flex justify-center items-center text-center text-white bg-cover bg-center bg-no-repeat cursor-pointer"
       style={{
         backgroundImage: "url('/images/background-contact.png')",
