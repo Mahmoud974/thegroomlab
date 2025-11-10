@@ -1,36 +1,72 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<div align="center">
 
-## Getting Started
+<img src="./public/hero.png" width="800" />
 
-First, run the development server:
+# 💈 THE GROOM LAB  
+### **Prenez rendez-vous. Révélez votre style.**
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Application vitrine moderne pour barber haut de gamme :  
+✅ Présentation des prestations  
+✅ Prise de rendez-vous en ligne  
+✅ Site accessible & responsive  
+✅ Déploiement automatique via Terraform (S3 + CloudFront)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+</div>
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🎯 Objectif
 
-To learn more about Next.js, take a look at the following resources:
+Créer une expérience premium permettant aux visiteurs de :
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Découvrir les **prestations de coupe** (barbe, cheveux, soins).
+- Prendre un **rendez-vous instantanément** via un CTA clair.
+- Naviguer facilement, même avec des limitations visuelles ou motrices.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+> 🧠 *Le design n'est pas seulement beau. Il est pensé pour **convertir**.*
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## ✨ Fonctionnalités clés (orientées utilisateur)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 💇‍♂️ Prestations & services
+- Présentation des prestations avec description et tarifs
+- Pages dédiées (coupe / barbe / soin)
+- Mise en valeur de l'expertise
+
+### 📅 Prise de rendez-vous
+- CTA visible dès l’arrivée (“Prendre rendez-vous”)
+- Call-to-action répétés dans le parcours utilisateur
+
+### ♿ Accessibilité & UX (AA / AAA)
+- Contraste fort (jaune / noir )
+- Navigation au clavier
+- Texte lisible, boutons bien espacés
+- Labels accessibles (`aria-label`, `role="button"`)
+
+---
+
+## 🚀 Stack & architecture
+
+| Technologie      | Usage |
+|------------------|--------|
+| **Next.js 16.0.1 (static export)** | Front-end + génération statique |
+| **React**        | UI Components |
+| **Terraform**    | Infra (S3 + CloudFront + ACM + OAC) |
+| **GitHub Actions** | CI/CD : build + upload + invalidation cache |
+| **AWS S3**       | Hébergement du site |
+| **AWS CloudFront** | CDN global + HTTPS |
+
+### 🏗️ Architecture (diagramme)
+
+```mermaid
+graph TD
+    User[Client / visiteur] -->|HTTPS| CloudFront
+    CloudFront --> S3[(S3 Static Hosting)]
+    Dev[Dev Push Code] --> GitHubActions
+    GitHubActions -->|Build + Export| NextJS
+    NextJS -->|Sync output/ with| S3
+    GitHubActions -->|Invalidate Cache| CloudFront
+    TF[Terraform] --> AWS
