@@ -1,118 +1,88 @@
-import {
-  PenTool,
-  Monitor,
-  Megaphone,
-  LineChart,
-  Palette,
-  MessageSquare,
-  Share2,
-  Search,
-  Briefcase,
-} from "lucide-react";
+"use client";
 
-export default function Services() {
-  const services = [
+import { useRef } from "react";
+import Image from "next/image";
+import { Star } from "lucide-react";
+
+export default function Testimonials() {
+  const sliderRef = useRef<HTMLDivElement>(null);
+
+  const testimonials = [
     {
       id: 1,
-      icon: <Palette className="w-8 h-8" />,
-      title: "Identité visuelle",
-      description:
-        "Une identité forte et cohérente pour que votre marque soit reconnue au premier regard, sur tous vos supports.",
+      name: "John Moore",
+      rating: 5,
+      text: "Service impeccable. Coupe précise, barbe nickel. Un vrai barber de confiance.",
+      img: "/images/profils/client-3.png",
     },
     {
       id: 2,
-      icon: <Monitor className="w-8 h-8" />,
-      title: "Site internet",
-      description:
-        "Des sites modernes, rapides et pensés pour vos visiteurs. Votre vitrine numérique mérite autant de soin que votre entreprise.",
+      name: "Robbie Jones",
+      rating: 5,
+      text: "Ambiance premium, résultat parfait à chaque fois. Je recommande à 100%.",
+      img: "/images/profils/client-1.png",
     },
     {
       id: 3,
-      icon: <LineChart className="w-8 h-8" />,
-      title: "Marketing digital",
-      description:
-        "Analyse, stratégie et contenu : tout pour booster votre visibilité et transformer vos visiteurs en clients fidèles.",
-    },
-    {
-      id: 4,
-      icon: <PenTool className="w-8 h-8" />,
-      title: "Graphisme",
-      description:
-        "Du logo à l’affiche publicitaire, chaque création est pensée pour raconter votre histoire et séduire votre public.",
-    },
-    {
-      id: 5,
-      icon: <Search className="w-8 h-8" />,
-      title: "Référencement SEO",
-      description:
-        "Améliorez votre positionnement sur Google avec un SEO naturel et efficace, adapté à votre secteur et à vos clients.",
-    },
-    {
-      id: 6,
-      icon: <Share2 className="w-8 h-8" />,
-      title: "Réseaux sociaux",
-      description:
-        "Faites vivre votre marque au quotidien grâce à une stratégie sociale cohérente et du contenu engageant.",
-    },
-    {
-      id: 7,
-      icon: <Megaphone className="w-8 h-8" />,
-      title: "Publicité",
-      description:
-        "Des campagnes percutantes qui font parler de vous — sur le web, les réseaux ou les supports imprimés.",
-    },
-    {
-      id: 8,
-      icon: <MessageSquare className="w-8 h-8" />,
-      title: "Communication",
-      description:
-        "Nous vous aidons à transmettre le bon message, au bon moment, aux bonnes personnes. Votre image, notre priorité.",
-    },
-    {
-      id: 9,
-      icon: <Briefcase className="w-8 h-8" />,
-      title: "Création d'entreprise",
-      description:
-        "De l’idée au lancement, nous vous accompagnons dans chaque étape pour poser des bases solides à votre projet.",
+      name: "Ethan Miles",
+      rating: 5,
+      text: "Détails, soins, conseils… ici tu ne viens pas juste te faire couper les cheveux.",
+      img: "/images/profils/client-2.png",
     },
   ];
 
   return (
-    <section
-    id="services"
-      className="relative min-h-screen bg-cover bg-center bg-no-repeat text-white py-24"
-      style={{
-        backgroundImage: "url('/images/background-grey.png')",
-      }}
-    >
-      {/* overlay */}
-      <div className="absolute inset-0 bg-black/30"></div>
+    <section className="relative w-full min-h-[650px]  py-32 px-6 text-white">
+ 
+      <div className="absolute inset-0 -z-10">
+        <Image
+          src="/images/coupe.png"
+          alt="Background barber"
+          fill
+          priority
+          className="object-cover object-center brightness-[0.35]"
+        />
+        <div className="absolute inset-0 bg-black/40" />  
+      </div>
 
-      <div className="relative z-10 container mx-auto text-center px-4">
-        <h2 className="text-5xl font-bold mb-8 inline-block">
-          <span className="bg-orange-500 px-6 py-2 inline-block transform -rotate-2"  >
-            Services
-          </span>
-        </h2>
+      <div className="container mx-auto max-w-7xl">
+        <div className="mb-16">
+          <div className="flex items-center gap-4">
+            <span className="h-[2px] w-20 bg-[#FFD400]"></span>
+            <h2 className="text-4xl md:text-5xl font-extrabold uppercase tracking-wide">
+              Avis Clients
+            </h2>
+          </div>
+          <p className="text-gray-200 text-lg   mt-3">
+            Découvrez ce que nos clients pensent de leur expérience.
+          </p>
+        </div>
 
-        <p className="text-orange-500 text-lg pb-6">
-          Chaque projet naît d’un besoin concret, évolue grâce à des solutions visuelles<br />
-          adaptées, et s’accomplit dans la réussite de vos objectifs.
-        </p>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
-          {services.map((service) => (
+        <div ref={sliderRef} className="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-6 scrollbar-hide">
+          {testimonials.map((review) => (
             <div
-              key={service.id}
-              className="bg-[#141414] hover:bg-[#1c1c1c] transition-all duration-300 p-8 h-80 shadow-lg border border-transparent hover:border-orange-500 flex  flex-col justify-center items-center text-center"
+              key={review.id}
+              className="snap-center min-w-[400px] bg-black/70 backdrop-blur border border-[#FFD400]/40 -2xl p-8
+                        flex flex-col gap-6 hover:border-[#FFD400] transition duration-300"
             >
-              <div className="mb-4 text-orange-500">{service.icon}</div>
-              <h3 className="text-2xl font-bold text-orange-500 mb-3">
-                {service.title}
-              </h3>
-              <p className="text-gray-300 text-sm leading-relaxed max-w-xs">
-                {service.description}
-              </p>
+              <div className="flex items-center gap-4">
+                <Image
+                  src={review.img}
+                  alt={review.name}
+                  width={60}
+                  height={60}
+                  className="rounded-full w-18 h-18 object-cover"
+                />
+                <div>
+                  <h3 className="font-bold text-lg uppercase tracking-wide">{review.name}</h3>
+                  <div className="flex text-[#FFD400] gap-1">
+                    {[...Array(review.rating)].map((_, i) => (
+                      <Star key={i} size={18} fill="#FFD400" />
+                    ))}
+                  </div>
+                </div>
+              </div>
+              <p className="text-gray-300 text-sm leading-relaxed">{review.text}</p>
             </div>
           ))}
         </div>

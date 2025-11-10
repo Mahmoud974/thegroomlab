@@ -1,150 +1,103 @@
 "use client";
-import { useEffect, useState, useRef } from "react";
+
+import { useRef, useState, useEffect } from "react";
 import Navbar from "@/components/Navbar";
+import Image from "next/image";
 
 export default function Home() {
+  const sectionRef = useRef<HTMLDivElement>(null); // section avec les chiffres
+  const nextSectionRef = useRef<HTMLDivElement>(null); // nouvelle section pour scroll
+
+  const [isVisible, setIsVisible] = useState(false);
+
   const [experience, setExperience] = useState(0);
   const [projects, setProjects] = useState(0);
   const [clients, setClients] = useState(0);
 
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
-
- 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsVisible(true);
-          }
-        });
-      },
-      { threshold: 0.4 }
-    );
+    const observer = new IntersectionObserver(([entry]) => {
+      setIsVisible(entry.isIntersecting);
+    }, { threshold: 0.4 });
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => {
-      if (sectionRef.current) observer.unobserve(sectionRef.current);
-    };
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
   }, []);
 
-   
   useEffect(() => {
-    if (isVisible) {
-      const expTarget = 10;
-      const projTarget = 100;
-      const clientTarget = 94;
+    if (!isVisible) return;
 
-      let expCount = 0;
-      let projCount = 0;
-      let clientCount = 0;
+    let exp = 0,
+      proj = 0,
+      cli = 0;
+    const interval = setInterval(() => {
+      if (exp < 10) exp++;
+      if (proj < 100) proj += 2;
+      if (cli < 94) cli++;
 
-      const interval = setInterval(() => {
-        if (expCount < expTarget) expCount += 1;
-        if (projCount < projTarget) projCount += 2;
-        if (clientCount < clientTarget) clientCount += 1;
+      setExperience(exp);
+      setProjects(proj);
+      setClients(cli);
 
-        setExperience(expCount);
-        setProjects(projCount);
-        setClients(clientCount);
+      if (exp >= 10 && proj >= 100 && cli >= 94) clearInterval(interval);
+    }, 30);
 
-        if (expCount >= expTarget && projCount >= projTarget && clientCount >= clientTarget) {
-          clearInterval(interval);
-        }
-      }, 30);
-    }
+    return () => clearInterval(interval);
   }, [isVisible]);
 
+  const scrollToNextSection = () => {
+    nextSectionRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
-    <section className="relative h-[100vh] overflow-hidden text-white flex flex-col">
-      {/* Vidéo de fond */}
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="absolute inset-0 w-full h-full object-cover"
-      >
-        <source src="/images/background-video.mp4" type="video/mp4" />
-        Votre navigateur ne supporte pas la vidéo HTML5.
-      </video>
+    <>
+      {/* ✅ SECTION HERO */}
+      <section className="relative h-screen text-white flex justify-center items-center overflow-hidden">
 
-      {/* Overlay sombre */}
-      <div className="absolute inset-0 bg-black/50"></div>
+        {/* ✅ Image de fond */}
+        <Image
+          src="/images/bg-barber.png"
+          alt="Arrière-plan barber"
+          fill
+          priority
+          className="object-cover object-center brightness-[0.25] -z-10"
+        />
 
-      {/* Contenu principal */}
-      <div className="relative z-10 flex flex-col justify-between h-full">
-        <Navbar />
-{/* Bloc de texte */}
-        <div className="container mx-auto text-left px-6  -mt-16" ref={sectionRef}>
-          <p className="text-5xl md:text-6xl mt-96 font-bold leading-tight mb-4">
-            Créez Votre Identité Visuelle <br />
-            avec un{" "}
-            <span className="bg-orange-500 px-3 py-1 transform">
-              Site Unique
-            </span>{" "}
-            – <br />
-            Design & Professionnalisme
-          </p>
+        {/* ✅ Overlay sombre */}
+        <div className="absolute inset-0 bg-black/40 -z-10" />
 
-          <p className="text-xl md:text-2xl text-gray-200 max-w-5xl ">
-            Un site web pensé sur mesure pour refléter votre image, captiver vos
-            visiteurs et booster votre activité.
-          </p>
-
-          {/* Section chiffres clés avec compteur */}
-          <div className="flex flex-col md:flex-row justify-start items-start text-left mt-6">
-            {/* Bloc 1 */}
-            <div className="md:pr-6 pb-32">
-              <h3 className="text-4xl font-bold text-orange-500 leading-none mb-0">
-                {experience}+
-              </h3>
-              <p className="uppercase tracking-wide font-semibold text-orange-500 mb-1">
-                Expérience
-              </p>
-              <p className="text-gray-300 text-sm">
-                Des années à transformer visuels<br /> percutants.
-              </p>
-            </div>
-
-            {/* Séparateur vertical */}
-            <div className="hidden md:block h-28 border-l border-slate-100 mx-6"></div>
-
-            {/* Bloc 2 */}
-            <div className="md:px-0 pb-32">
-              <h3 className="text-4xl font-bold text-orange-500 leading-none mb-0">
-                {projects}+
-              </h3>
-              <p className="uppercase tracking-wide font-semibold text-orange-500 mb-1">
-                Projets Réalisés
-              </p>
-              <p className="text-gray-300 text-sm">
-                Sites web modernes, logos, flyers et<br /> designs sur mesure.
-              </p>
-            </div>
-
-            {/* Séparateur vertical */}
-            <div className="hidden md:block h-28 border-l border-slate-100 mx-6"></div>
-
-            {/* Bloc 3 */}
-            <div className="md:pl-0 pb-32">
-              <h3 className="text-4xl font-bold text-orange-500 leading-none mb-0">
-                {clients}%
-              </h3>
-              <p className="uppercase tracking-wide font-semibold text-orange-500 mb-1">
-                Clients Satisfaits
-              </p>
-              <p className="text-gray-300 text-sm">
-                Sites web modernes, logos,<br /> flyers et designs sur mesure.
-              </p>
-            </div>
-          </div>
+        {/* ✅ Navbar */}
+        <div className="absolute top-0 w-full z-50">
+          <Navbar />
         </div>
-      </div>
-    </section>
+
+        {/* ✅ Contenu au centre */}
+        <div className="relative z-20 text-center px-6 max-w-7xl">
+
+          <h1 className="text-5xl md:text-6xl text-[#FFD400] font-extrabold uppercase leading-tight">
+            Coupe Parfaite. Style Audacieux.<br />La Confiance Commence Ici.
+          </h1>
+
+          <p className="text-lg md:text-xl text-gray-300 mt-6 max-w-7xl mx-auto">
+            Précision. Élégance. Excellence.
+            Chaque coupe est réalisée comme une véritable œuvre,
+            pensée pour mettre en valeur ta personnalité
+            et t’offrir une confiance absolue.
+          </p>
+
+          <div className="flex flex-col md:flex-row gap-4 justify-center mt-10">
+            <button className="bg-[#FFD400] text-black font-semibold text-lg px-10 py-4 cursor-pointer hover:bg-[#e6c200] transition-all">
+              Prendre rendez-vous
+            </button>
+
+            <button className="border border-[#FFD400] text-[#FFD400] font-semibold text-lg px-10 py-4 cursor-pointer hover:bg-[#FFD400] hover:text-black transition-all">
+              Voir les services
+            </button>
+          </div>
+
+        
+        </div>
+      </section>
+ 
+    </>
   );
 }

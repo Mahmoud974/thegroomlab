@@ -174,13 +174,13 @@ export default function Page() {
               {/* Flèches */}
               <button
                 onClick={prevSlide}
-                className="absolute left-3 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-orange-500 transition text-white p-2 rounded-full"
+                className="absolute left-3 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-orange-500 transition text-white p-2 -full"
               >
                 ←
               </button>
               <button
                 onClick={nextSlide}
-                className="absolute right-3 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-orange-500 transition text-white p-2 rounded-full"
+                className="absolute right-3 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-orange-500 transition text-white p-2 -full"
               >
                 →
               </button>

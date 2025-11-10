@@ -132,10 +132,10 @@ export default function FormulaireProjet() {
 
   return (
     <section
-    className="relative flex flex-col justify-center items-center min-h-screen bg-cover bg-center bg-no-repeat"
-    style={{
-      backgroundImage: "url('/images/background-grey.png')",
-    }}
+     className="relative flex flex-col justify-center items-center min-h-screen bg-cover bg-center bg-no-repeat"
+      style={{
+        backgroundImage: "url('/images/background-grey.png')",
+      }}
     >
       <div className="flex justify-between pb-9 w-full max-w-3xl">
         <button className="hover:text-orange-400">
@@ -149,7 +149,7 @@ export default function FormulaireProjet() {
 
       <form
         onSubmit={handleSubmit}
-        className="max-w-3xl mx-auto p-8 bg-neutral-900 text-white rounded-2xl shadow-lg space-y-8"
+        className="max-w-3xl mx-auto p-8 bg-neutral-900 text-white -2xl shadow-lg space-y-8"
       >
         <h2 className="text-3xl font-bold text-center mb-8">Ajouter un Projet</h2>
 
@@ -159,7 +159,7 @@ export default function FormulaireProjet() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {images.map((img, i) => (
               <div key={i} className="flex flex-col items-center space-y-2">
-                <label className="w-full cursor-pointer border-2 border-dashed border-neutral-700 rounded-lg p-4 text-center hover:border-orange-400 transition">
+                <label className="w-full cursor-pointer border-2 border-dashed border-neutral-700 -lg p-4 text-center hover:border-orange-400 transition">
                   <input
                     type="file"
                     accept="image/*"
@@ -170,7 +170,7 @@ export default function FormulaireProjet() {
                     <Image
                       src={img.preview}
                       alt="Preview"
-                      className="w-full h-48 object-cover rounded-lg"
+                      className="w-full h-48 object-cover -lg"
                     />
                   ) : (
                     <span className="text-neutral-400">Clique pour importer une image</span>
@@ -181,7 +181,7 @@ export default function FormulaireProjet() {
                   placeholder={`Texte alt ${i + 1}`}
                   value={img.alt}
                   onChange={(e) => handleAltChange(e.target.value, i)}
-                  className="p-2 bg-neutral-800 border border-neutral-700 w-full text-sm rounded"
+                  className="p-2 bg-neutral-800 border border-neutral-700 w-full text-sm "
                 />
                 {errors[`alt${i}`] && (
                   <p className="text-red-500 text-xs">{errors[`alt${i}`]}</p>
@@ -198,7 +198,7 @@ export default function FormulaireProjet() {
             <button
               type="button"
               onClick={addOutil}
-              className="bg-orange-500 text-white px-3 py-1 text-sm rounded hover:bg-orange-600"
+              className="bg-orange-500 text-white px-3 py-1 text-sm  hover:bg-orange-600"
             >
               + Ajouter
             </button>
@@ -211,7 +211,7 @@ export default function FormulaireProjet() {
                   value={outil}
                   onChange={(e) => updateOutil(e.target.value, i)}
                   placeholder={`Outil ${i + 1}`}
-                  className="p-2 bg-neutral-800 border border-neutral-700 w-full rounded"
+                  className="p-2 bg-neutral-800 border border-neutral-700 w-full "
                 />
                 {errors[`outil${i}`] && (
                   <p className="text-red-500 text-xs mt-1">{errors[`outil${i}`]}</p>
@@ -228,7 +228,7 @@ export default function FormulaireProjet() {
             <button
               type="button"
               onClick={addProjet}
-              className="bg-orange-500 text-white px-3 py-1 text-sm rounded hover:bg-orange-600"
+              className="bg-orange-500 text-white px-3 py-1 text-sm  hover:bg-orange-600"
             >
               + Ajouter
             </button>
@@ -241,7 +241,7 @@ export default function FormulaireProjet() {
                   value={projet}
                   onChange={(e) => updateProjet(e.target.value, i)}
                   placeholder={`Projet ${i + 1}`}
-                  className="p-2 bg-neutral-800 border border-neutral-700 w-full rounded"
+                  className="p-2 bg-neutral-800 border border-neutral-700 w-full "
                 />
                 {errors[`projet${i}`] && (
                   <p className="text-red-500 text-xs mt-1">{errors[`projet${i}`]}</p>
@@ -261,7 +261,7 @@ export default function FormulaireProjet() {
                   type="color"
                   value={couleur}
                   onChange={(e) => updateCouleur(e.target.value, i)}
-                  className="w-16 h-10 border border-neutral-600 cursor-pointer rounded"
+                  className="w-16 h-10 border border-neutral-600 cursor-pointer "
                 />
                 <input
                   type="text"
@@ -270,7 +270,7 @@ export default function FormulaireProjet() {
                   placeholder="#ffffff"
                   className={`mt-2 p-1 bg-neutral-800 border ${
                     errors[`couleur${i}`] ? "border-red-500" : "border-neutral-700"
-                  } text-center w-full rounded`}
+                  } text-center w-full `}
                 />
                 {errors[`couleur${i}`] && (
                   <p className="text-red-500 text-xs mt-1">{errors[`couleur${i}`]}</p>
@@ -288,7 +288,7 @@ export default function FormulaireProjet() {
             value={description}
             onChange={(e) => setDescription(e.target.value)}
             placeholder="Décris ton projet ici..."
-            className="p-2 bg-neutral-800 border border-neutral-700 w-full rounded"
+            className="p-2 bg-neutral-800 border border-neutral-700 w-full "
           />
           {errors.description && (
             <p className="text-red-500 text-xs mt-1">{errors.description}</p>
@@ -299,7 +299,7 @@ export default function FormulaireProjet() {
         <div className="text-center">
           <button
             type="submit"
-            className="px-6 py-3 bg-orange-500 hover:bg-orange-600 font-semibold text-white transition rounded"
+            className="px-6 py-3 bg-orange-500 hover:bg-orange-600 font-semibold text-white transition "
           >
             Enregistrer le projet
           </button>

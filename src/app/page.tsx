@@ -1,21 +1,30 @@
-import BarAnimation from '@/components/BarAnimation'
+ 
+import AboutSection from '@/components/AboutSection'
 import Contact from '@/components/Contact'
+import Faq from '@/components/Faq'
 import Footer from '@/components/Footer'
+import Gallery from '@/components/Galleries'
 import Home from '@/components/Home'
-import Portfolios from '@/components/Portfolios'
+import Informations from '@/components/Informations'
+ 
 import Services from '@/components/Services'
-import Social from '@/components/Social'
+ 
+import TarifsSection from '@/components/TarifsSection'
 import React from 'react'
 
 export default function page() {
   return (
   <>
     <Home/>
-    <BarAnimation/>
-    <Portfolios/>
-    <Social/>
+ 
+    <Informations/>
+    <TarifsSection/>
+    <Gallery/>
     <Services/>
+  
+    <Faq/>
     <Contact/>
+    <AboutSection/>
     <Footer/>
   
     
