@@ -1,0 +1,22 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+    - echo Installation des dépendances...
+    - npm install
+  build:
+    commands:
+    - echo Build du projet Next.js...
+    - npm run build
+  post_build:
+    commands:
+    - echo Déploiement vers S3...
+    - aws s3 sync out/ s3://thegroomlab --delete
+    - echo Invalidation du cache CloudFront...
+    - aws cloudfront create-invalidation --distribution-id VOTRE-DISTRIBUTION-ID --paths "/*"
+
+artifacts:
+  files:
+  - '**/*'
+  base-directory: out

@@ -21,22 +21,22 @@ export default function Footer() {
             className="opacity-90"
           />
 
-          {/* Phrase */}
+        
           <p className="text-gray-400 text-sm leading-relaxed">
             Style. Précision. Excellence. <br />
             Nous révélons la meilleure version de toi — avec une coupe impeccable et un service premium.
           </p>
 
-          {/* 🔥 Informations */}
+          
           <div className="flex flex-col md:flex-row gap-10 text-gray-300 text-sm mt-4">
 
-            {/* Adresse */}
+           
             <div className="flex items-center gap-3 justify-center">
               <MapPin className="text-[#FFD400] w-5 h-5" />
               <span>12 rue Victor Hugo, 34000 Montpellier</span>
             </div>
 
-            {/* Téléphone */}
+       
             <div className="flex items-center gap-3 justify-center">
               <Phone className="text-[#FFD400] w-5 h-5" />
               <span>+33 06 12 34 56 78</span>
@@ -73,7 +73,7 @@ export default function Footer() {
         <div className="w-full bg-[#FFD400] h-[3px] rounded-full mt-14"></div>
 
     
-        <div className="flex flex-col md:flex-row justify-between container mx-auto items-center">
+        <div className="flex flex-col  max-w-7xl md:flex-row justify-between container mx-auto items-center">
 
           <div className="flex flex-wrap justify-center items-center gap-6 md:gap-10 mt-8 text-gray-400 text-xs">
             <Link href="/terms" className="hover:text-[#FFD400] transition">
