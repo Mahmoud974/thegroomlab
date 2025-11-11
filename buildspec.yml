@@ -1,22 +1,32 @@
 version: 0.2
 
 phases:
+  install:
+    commands:
+    - echo "💡 Mise à jour vers Node.js 20..."
+    - curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
+    - apt-get install -y nodejs
+    - node -v
+    - npm -v
+
   pre_build:
     commands:
-    - echo Installation des dépendances...
+    - echo "📦 Installation des dépendances..."
     - npm install
+
   build:
     commands:
-    - echo Build du projet Next.js...
+    - echo "🚀 Build du projet Next.js..."
     - npm run build
+
   post_build:
     commands:
-    - echo Déploiement vers S3...
+    - echo "📤 Déploiement vers S3..."
     - aws s3 sync out/ s3://thegroomlab --delete
-    - echo Invalidation du cache CloudFront...
+    - echo "🧹 Invalidation du cache CloudFront..."
     - aws cloudfront create-invalidation --distribution-id E1WL1KCM9ECW9J --paths "/*"
 
 artifacts:
+  base-directory: out
   files:
   - '**/*'
-  base-directory: out
