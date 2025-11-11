@@ -3,10 +3,11 @@
 import { useRef, useState, useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
-  const sectionRef = useRef<HTMLDivElement>(null); // section avec les chiffres
-  const nextSectionRef = useRef<HTMLDivElement>(null); // nouvelle section pour scroll
+  const sectionRef = useRef<HTMLDivElement>(null);  
+  const nextSectionRef = useRef<HTMLDivElement>(null);  
 
   const [isVisible, setIsVisible] = useState(false);
 
@@ -44,16 +45,14 @@ export default function Home() {
     return () => clearInterval(interval);
   }, [isVisible]);
 
-  const scrollToNextSection = () => {
-    nextSectionRef.current?.scrollIntoView({ behavior: "smooth" });
-  };
+ 
 
   return (
     <>
-      {/* ✅ SECTION HERO */}
+      {/*  SECTION HERO */}
       <section className="relative h-screen text-white flex justify-center items-center overflow-hidden">
 
-        {/* ✅ Image de fond */}
+       
         <Image
           src="/images/bg-barber.png"
           alt="Arrière-plan barber"
@@ -61,16 +60,14 @@ export default function Home() {
           priority
           className="object-cover object-center brightness-[0.25] -z-10"
         />
-
-        {/* ✅ Overlay sombre */}
+ 
         <div className="absolute inset-0 bg-black/40 -z-10" />
 
-        {/* ✅ Navbar */}
+        {/*   Navbar */}
         <div className="absolute top-0 w-full z-50">
           <Navbar />
         </div>
-
-        {/* ✅ Contenu au centre */}
+ 
         <div className="relative z-20 text-center px-6 max-w-7xl">
 
           <h1 className="text-5xl md:text-6xl text-[#FFD400] font-extrabold uppercase leading-tight">
@@ -85,13 +82,14 @@ export default function Home() {
           </p>
 
           <div className="flex flex-col md:flex-row gap-4 justify-center mt-10">
-            <button className="bg-[#FFD400] text-black font-semibold text-lg px-10 py-4 cursor-pointer hover:bg-[#e6c200] transition-all">
+            <button className="bg-[#FFD400] hover:border hover:border-[#FFD400] hover:bg-transparent hover:text-[#FFD400] text-black font-semibold text-lg px-10 py-4 cursor-pointer   transition-all">
               Prendre rendez-vous
             </button>
-
+          <Link href="/#Tarifs">
             <button className="border border-[#FFD400] text-[#FFD400] font-semibold text-lg px-10 py-4 cursor-pointer hover:bg-[#FFD400] hover:text-black transition-all">
               Voir les services
             </button>
+            </Link>
           </div>
 
         

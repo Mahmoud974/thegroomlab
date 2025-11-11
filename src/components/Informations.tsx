@@ -16,9 +16,9 @@ export default function Informations() {
             </span>
           </div>
           <h3 className="font-bold uppercase tracking-wide text-lg">
-            Tous les jours
+            Mardi au Samedi
           </h3>
-          <p className="text-sm opacity-70">9h00 — 20h00</p>
+          <p className="text-sm opacity-70">11h00 - 20h00</p>
         </div>
 
       

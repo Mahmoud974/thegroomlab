@@ -67,7 +67,7 @@ export default function Contact() {
             className="w-full bg-black/50 border border-[#FFD400]/40 text-white placeholder-gray-400 px-4 py-4 -lg outline-none resize-none focus:border-[#FFD400]"
           ></textarea>
 
-          <button className="bg-[#FFD400] hover:bg-yellow-500 text-black font-semibold py-3 px-10 text-lg -lg transition-all duration-300 shadow-lg">
+          <button className="cursor-pointer bg-[#FFD400] hover:bg-yellow-500 text-black font-semibold py-3 px-10 text-lg -lg transition-all duration-300 shadow-lg">
             Envoyer
           </button>
         </form>

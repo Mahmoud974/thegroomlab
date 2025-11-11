@@ -4,7 +4,7 @@ import { useRef } from "react";
 import Image from "next/image";
 import { Star } from "lucide-react";
 
-export default function Testimonials() {
+export default function AvisClients() {
   const sliderRef = useRef<HTMLDivElement>(null);
 
   const testimonials = [
@@ -32,7 +32,7 @@ export default function Testimonials() {
   ];
 
   return (
-    <section className="relative w-full min-h-[650px]  py-32 px-6 text-white">
+    <section className="relative w-full py-32 px-6 text-white">
  
       <div className="absolute inset-0 -z-10">
         <Image
@@ -53,16 +53,20 @@ export default function Testimonials() {
               Avis Clients
             </h2>
           </div>
-          <p className="text-gray-200 text-lg   mt-3">
+          <p className="text-gray-200 text-lg mt-3">
             Découvrez ce que nos clients pensent de leur expérience.
           </p>
         </div>
 
-        <div ref={sliderRef} className="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-6 scrollbar-hide">
+        <div
+  ref={sliderRef}
+  className="flex flex-col xl:flex-row gap-6 xl:overflow-x-auto xl:snap-x xl:snap-mandatory pb-6 custom-scroll"
+>
+
           {testimonials.map((review) => (
             <div
               key={review.id}
-              className="snap-center min-w-[400px] bg-black/70 backdrop-blur border border-[#FFD400]/40 -2xl p-8
+              className="md:snap-center w-full md:min-w-[400px] bg-black/70 backdrop-blur border border-[#FFD400]/40   p-8
                         flex flex-col gap-6 hover:border-[#FFD400] transition duration-300"
             >
               <div className="flex items-center gap-4">
@@ -71,7 +75,7 @@ export default function Testimonials() {
                   alt={review.name}
                   width={60}
                   height={60}
-                  className="rounded-full w-18 h-18 object-cover"
+                  className="rounded-full w-16 h-16 object-cover"
                 />
                 <div>
                   <h3 className="font-bold text-lg uppercase tracking-wide">{review.name}</h3>

@@ -1,10 +1,7 @@
-import { Scissors, UserRound, SprayCan, Bath, Gauge, Sparkles } from "lucide-react";
-
- 
 export interface ServiceBarber {
   title: string;
   price: number;
-  icon: React.ComponentType<{ size?: number; className?: string }>;
+  image: string;
   desc: string;
 }
 
@@ -12,37 +9,37 @@ export const servicesBarber: ServiceBarber[] = [
   {
     title: "Dégradé Classique",
     price: 25,
-    icon: Scissors,
+    image: "/images/icons/hair.png",
     desc: "Coupe propre, structurée et élégante.",
   },
   {
     title: "Taille de Barbe",
     price: 15,
-    icon: UserRound,
+    image: "/images/icons/beard.png",
     desc: "Barbe sculptée + finitions rasoir.",
   },
   {
     title: "Rasage Traditionnel",
     price: 20,
-    icon: Gauge,
+    image: "/images/icons/rasoir.png",
     desc: "Serviette chaude + rasage à l’ancienne.",
   },
   {
     title: "Coloration / Retouche",
     price: 30,
-    icon: SprayCan,
+    image: "/images/icons/product.png",
     desc: "Coloration ou camouflage cheveux blancs.",
   },
   {
     title: "Soin Visage",
     price: 20,
-    icon: Sparkles,
+    image: "/images/icons/face.png",
     desc: "Nettoyage, gommage et hydratation.",
   },
   {
     title: "Shampoing + Soin",
     price: 10,
-    icon: Bath,
+    image: "/images/icons/shampoo.png",
     desc: "Lavage + massage crânien relaxant.",
   },
 ];

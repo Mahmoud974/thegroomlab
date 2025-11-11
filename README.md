@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="./public/hero.png" width="800" />
+<img src="public/images/hero.png" width="800" alt="Hero image" />
 
 # 💈 THE GROOM LAB  
 ### **Prenez rendez-vous. Révélez votre style.**

@@ -14,7 +14,7 @@ export default function Gallery() {
 
   return (
     <section
-      id="galerie"
+      id="Galerie"
       className="relative w-full py-32 px-6 text-white"
     >
     

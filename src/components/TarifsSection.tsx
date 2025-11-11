@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export default function TarifsSection() {
   return (
-    <section id="services" className="relative w-full py-32 px-6 text-white">
+    <section id="Tarifs" className="relative w-full py-32 px-6 text-white">
  
       <div className="absolute inset-0 -z-10">
         <Image
@@ -37,12 +37,22 @@ export default function TarifsSection() {
       
       <div className="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-14">
         {servicesBarber.map((srv, index) => {
-          const Icon = srv.icon;
+          
           return (
             <div key={index} className="group cursor-pointer">
               <div className="flex justify-between items-center mb-1">
                 <div className="flex items-center gap-4">
-                  <Icon size={30} className="text-[#FFD400]" />
+                <div className="w-10 h-10 flex items-center justify-center">
+  <Image
+    src={srv.image}
+    alt={srv.title}
+    width={70}
+    height={70}
+    className="object-contain w-16 h-16"
+  />
+</div>
+
+
                   <h3 className="text-xl font-bold uppercase tracking-wide group-hover:text-[#FFD400] transition-all">
                     {srv.title}
                   </h3>

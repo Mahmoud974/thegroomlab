@@ -1,6 +1,6 @@
 "use client";
 
-export default function ContactSection() {
+export default function Adress() {
   return (
     <section id="contact" className="w-full bg-white text-black">
 

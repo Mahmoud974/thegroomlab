@@ -3,44 +3,14 @@
 import { useState } from "react";
 import Image from "next/image";
 import { Plus, X } from "lucide-react";
+import { faqs } from "@/app/db/faq";
 
 export default function Faq() {
   const [openItem, setOpenItem] = useState<number | null>(0);
 
-  const faqs = [
-    {
-      question: "Puis-je venir sans rendez-vous ?",
-      answer:
-        "Nous acceptons les passages spontanés selon disponibilité, mais la prise de rendez-vous est fortement recommandée pour éviter l’attente.",
-    },
-    {
-      question: "Combien de temps dure une coupe ou une taille de barbe ?",
-      answer:
-        "Une coupe dure en moyenne 30 à 45 minutes. Une taille de barbe entre 15 et 30 minutes selon le service choisi.",
-    },
-    {
-      question: "Vous utilisez quoi pour la finition barbe ?",
-      answer:
-        "Nous travaillons avec des produits professionnels et une finition à la lame pour une précision maximale.",
-    },
-    {
-      question: "Est-ce que vous coupez les cheveux des enfants ?",
-      answer:
-        "Oui, nous proposons une prestation adaptée aux enfants, avec patience et une expérience agréable.",
-    },
-    {
-      question: "Est-ce que vous faites des transformations (dégradé + barbe) ?",
-      answer:
-        "Oui, nous proposons plusieurs formules combinées pour coupe + barbe + soin + serviette chaude.",
-    },
-    {
-      question: "Quels moyens de paiement acceptez-vous ?",
-      answer: "Carte bancaire, espèces et paiement sur place.",
-    },
-  ];
 
   return (
-    <section id="faq" className="relative w-full py-32 px-6 text-white">
+    <section id="FAQ" className="relative w-full py-32 px-6 text-white">
  
       <Image
         src="/images/salon.png"
