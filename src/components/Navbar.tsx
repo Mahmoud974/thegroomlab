@@ -66,7 +66,7 @@ export default function Navbar() {
   width={192}
   height={192}
   priority
-  className="h-8 sm:h-10 md:h-12 lg:h-14 w-auto object-contain transition-all duration-300"
+  className="h-8 sm:h-10 md:h-12 lg:h-9 w-auto object-contain transition-all duration-300"
 />
 
             </Link>
