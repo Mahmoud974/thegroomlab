@@ -14,7 +14,7 @@ phases:
     - echo Déploiement vers S3...
     - aws s3 sync out/ s3://thegroomlab --delete
     - echo Invalidation du cache CloudFront...
-    - aws cloudfront create-invalidation --distribution-id VOTRE-DISTRIBUTION-ID --paths "/*"
+    - aws cloudfront create-invalidation --distribution-id E1WL1KCM9ECW9J --paths "/*"
 
 artifacts:
   files:
