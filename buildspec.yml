@@ -2,6 +2,8 @@ version: 0.2
 
 phases:
   install:
+    runtime-versions:
+      nodejs: 20
     commands:
     - echo "⚡ Installation des dépendances..."
     - npm install
@@ -10,7 +12,6 @@ phases:
     commands:
     - echo "⚙️ Build du projet Next.js..."
     - npm run build
-    - npm run export
 
   post_build:
     commands:
