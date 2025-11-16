@@ -17,6 +17,11 @@ Application vitrine moderne pour barber haut de gamme :
 
 ---
 
+### 🏗️ Architecture (diagramme)
+
+<img src="public/images/schema-aws.png" width="800" alt="Architecture aws " />
+
+
 ## 🎯 Objectif
 
 Créer une expérience premium permettant aux visiteurs de :
@@ -59,14 +64,3 @@ Créer une expérience premium permettant aux visiteurs de :
 | **AWS S3**       | Hébergement du site |
 | **AWS CloudFront** | CDN global + HTTPS |
 
-### 🏗️ Architecture (diagramme)
-
-```mermaid
-graph TD
-    User[Client / visiteur] -->|HTTPS| CloudFront
-    CloudFront --> S3[(S3 Static Hosting)]
-    Dev[Dev Push Code] --> GitHubActions
-    GitHubActions -->|Build + Export| NextJS
-    NextJS -->|Sync output/ with| S3
-    GitHubActions -->|Invalidate Cache| CloudFront
-    TF[Terraform] --> AWS
