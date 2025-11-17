@@ -49,8 +49,8 @@ export default function Home() {
 
   return (
     <>
-      {/*  SECTION HERO */}
-      <section className="relative h-screen text-white flex justify-center items-center overflow-hidden">
+ 
+      <section className="relative h-screen  text-white flex justify-center items-center overflow-hidden">
 
        
         <Image
@@ -86,7 +86,7 @@ export default function Home() {
               Prendre rendez-vous
             </button>
           <Link href="/#Tarifs">
-            <button className="border border-[#FFD400] text-[#FFD400] font-semibold text-lg px-10 py-4 cursor-pointer hover:bg-[#FFD400] hover:text-black transition-all">
+            <button className="border w-full border-[#FFD400] text-[#FFD400] font-semibold text-lg px-10 py-4 cursor-pointer hover:bg-[#FFD400] hover:text-black transition-all">
               Voir les services
             </button>
             </Link>
