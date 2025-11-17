@@ -70,11 +70,11 @@ export default function Home() {
  
         <div className="relative z-20 text-center px-6 max-w-7xl">
 
-          <h1 className="text-5xl md:text-6xl text-[#FFD400] font-extrabold uppercase leading-tight">
+          <h1 className="text-4xl md:text-6xl text-[#FFD400] font-extrabold uppercase leading-tight">
             Coupe Parfaite. Style Audacieux.<br />La Confiance Commence Ici.
           </h1>
 
-          <p className="text-lg md:text-xl text-gray-300 mt-6 max-w-7xl mx-auto">
+          <p className="text-base md:text-xl text-gray-300 mt-6 max-w-7xl mx-auto">
             Précision. Élégance. Excellence.
             Chaque coupe est réalisée comme une véritable œuvre,
             pensée pour mettre en valeur ta personnalité
