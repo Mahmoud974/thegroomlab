@@ -53,7 +53,7 @@ export default function TarifsSection() {
 </div>
 
 
-                  <h3 className="text-xl font-bold uppercase tracking-wide group-hover:text-[#FFD400] transition-all">
+                  <h3 className="md:text-xl font-bold uppercase tracking-wide group-hover:text-[#FFD400] transition-all">
                     {srv.title}
                   </h3>
                 </div>

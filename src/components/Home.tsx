@@ -50,7 +50,7 @@ export default function Home() {
   return (
     <>
  
-      <section className="relative h-screen  text-white flex justify-center items-center overflow-hidden">
+      <section className="relative h-screen text-white flex justify-center items-center overflow-hidden">
 
        
         <Image
@@ -68,7 +68,7 @@ export default function Home() {
           <Navbar />
         </div>
  
-        <div className="relative z-20 text-center px-6 max-w-7xl">
+        <div className="relative z-20 text-center px-6 lg:pt-0 pt-32  max-w-7xl">
 
           <h1 className="text-4xl md:text-6xl text-[#FFD400] font-extrabold uppercase leading-tight">
             Coupe Parfaite. Style Audacieux.<br />La Confiance Commence Ici.
